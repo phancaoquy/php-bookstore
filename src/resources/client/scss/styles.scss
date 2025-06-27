@@ -1,0 +1,22 @@
+// Import all of Bootstrap’s CSS
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
+
+// Custom SCSS
+@import "index.scss";
+
+// 1. Import your custom variables (MUST come before Bootstrap)
+@import "custom-variables";
+
+// 2. Import Bootstrap's functions, variables, and mixins
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+// 3. Import Bootstrap's components (dropdown, etc.)
+// You can selectively import only what you need to reduce CSS size
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/buttons";
+
+// Awesome
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);

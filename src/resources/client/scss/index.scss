@@ -1,0 +1,449 @@
+/* Basic styling for the body and content */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.text-red {
+  color: #bf0000;
+}
+
+// Swiper
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #bf0000;
+}
+
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: #bf0000;
+  fill: none;
+  stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}
+
+/* Swiper container dimensions - REQUIRED */
+.swiper {
+  width: 80%; /* Adjust as needed */
+  height: 450px; /* Adjust as needed */
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+/* Swiper slide styling */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+
+/* Optional: Custom styling for navigation/pagination if you don't like default */
+/* You can override Swiper's default classes */
+.swiper-button-prev,
+.swiper-button-next {
+  font-size: 1px !important;
+  border-radius: 30px;
+  padding: 30px;
+  background: #fff;
+  color: #000000 !important;
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 24px !important;
+  transform: translate(5%, 0%);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #bf0000 !important; /* Example: active pagination dot */
+}
+
+// HEADER MIDDLE
+.user-group {
+  &__dropdown {
+    opacity: 1; // Start completely transparent
+    transition:
+      opacity 0.2s ease-out,
+      visibility 0s 0.2s;
+  }
+
+  &:hover {
+    .user-group__dropdown {
+      display: block !important; /* Show on hover for larger screens */
+    }
+  }
+}
+
+// HEADER BOTTOm
+/* Custom CSS for Kobo-like header */
+.header__bottom {
+  position: relative;
+  .container {
+    position: relative; /* Make the container the positioning context */
+  }
+}
+
+/* Mega Menu Hover Effect */
+.main-nav {
+  .main-nav__tab {
+    position: static; /* Important for positioning the panel */
+    padding: 0 1rem; /* Adjust padding for tab items */
+    display: flex;
+    align-items: center;
+
+    /* Style for the nav-link inside the tab */
+    .nav-link {
+      color: #333; /* Default text color */
+      font-weight: 500;
+      padding: 1rem 0; /* Adjust vertical padding */
+      border-bottom: 2px solid transparent; /* Underline effect */
+      transition: all 0.3s ease; /* Smooth transition for hover */
+
+      &:hover {
+        color: #bf0000; /* Kobo blue-ish */
+        border-bottom-color: #bf0000;
+      }
+    }
+
+    /* The Mega Menu Panel */
+    .main-nav__panel {
+      // --- KEY CHANGES FOR SMOOTHNESS AND DELAY ---
+      opacity: 1; // Start completely transparent
+      transition:
+        opacity 0.2s ease-out,
+        visibility 0s 0.2s;
+
+      position: absolute;
+      top: 100%;
+      left: var(--bs-gutter-x, 0.75rem);
+      right: var(--bs-gutter-x, 0.75rem);
+      width: auto; /* Let left/right define width */
+
+      transform: translateX(0); /* Adjust for centering */
+      z-index: 1050; /* Ensure it appears above other content */
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      padding: 1rem;
+      border-radius: 0.25rem;
+
+      /* Specific styling for the internal dropdown-menu */
+      .dropdown-menu {
+        padding: 0; /* Remove default dropdown padding */
+        margin: 0; /* Remove default dropdown margin */
+        list-style: none; /* Remove bullet points */
+      }
+
+      .dropdown-item {
+        padding: 0.5rem 1rem;
+        a {
+          display: block;
+          transition: all 10s;
+          width: 100%;
+          color: #333;
+          text-decoration: none;
+          &:hover {
+            color: #bf0000;
+            background-color: #f8f9fa;
+          }
+        }
+      }
+    }
+
+    /* Show the panel on hover */
+    &:hover {
+      .main-nav__panel {
+        display: block !important; /* Show on hover for larger screens */
+      }
+      .nav-link {
+        color: #bf0000; /* Keep color active when panel is shown */
+        border-bottom-color: #bf0000;
+      }
+    }
+
+    /* Ensure the dropdown menu inside the panel doesn't have default Bootstrap styling applied to its positioning */
+    .header__category-widget .dropdown-menu,
+    .header__link-widget .dropdown-menu {
+      position: static !important; /* Override Bootstrap's dropdown-menu positioning */
+      transform: none !important; /* Override Bootstrap's dropdown-menu transform */
+      display: block !important; /* Ensure it's always block within the panel */
+      width: 100%;
+      float: none;
+      box-shadow: none;
+      border: none;
+    }
+
+    .dropdown-item:active {
+      background-color: transparent;
+    }
+  }
+}
+
+/* Adjustments for the top bar and main nav search/account */
+.header__top-bar .list-inline-item + .list-inline-item::before {
+  content: "|";
+  padding: 0 0.5rem;
+  color: #ccc;
+}
+
+/* Kobo branding color */
+.btn-red {
+  background-color: #bf0000 !important;
+}
+
+.btn-primary {
+  background-color: #bf0000; /* Example blue, adjust to Kobo's specific blue */
+  border-color: #bf0000;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+.text-primary {
+  color: #007bff !important;
+}
+
+// Book
+.book-wrapper {
+  max-width: 200px !important;
+}
+
+// Product Detail
+.product-image {
+  max-width: 300px;
+  object-fit: cover;
+}
+
+.image-container::after {
+  content: "";
+  display: block;
+  background-image: url(../images/book_shadow.png);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.stat-img img {
+  min-width: 66px !important;
+  max-height: 43px !important;
+}
+
+// Comment
+div,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 10px;
+}
+/****** Style Star Rating Widget *****/
+#rating {
+  border: none;
+  float: left;
+}
+#rating > input {
+  display: none;
+} /*ẩn input radio - vì chúng ta đã có label là GUI*/
+#rating > label:before {
+  margin: 5px;
+  font-size: 2em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+} /*1 ngôi sao*/
+#rating > .half:before {
+  content: "\f089";
+  position: absolute;
+} /*0.5 ngôi sao*/
+#rating > label {
+  color: #ddd;
+  float: right;
+} /*float:right để lật ngược các ngôi sao lại đúng theo thứ tự trong thực tế*/
+/*thêm màu cho sao đã chọn và các ngôi sao phía trước*/
+#rating > input:checked ~ label,
+#rating:not(:checked) > label:hover,
+#rating:not(:checked) > label:hover ~ label {
+  color: #bf0000;
+}
+/* Hover vào các sao phía trước ngôi sao đã chọn*/
+#rating > input:checked + label:hover,
+#rating > input:checked ~ label:hover,
+#rating > label:hover ~ input:checked ~ label,
+#rating > input:checked ~ label:hover ~ label {
+  color: #e24f4f;
+}
+
+// Reviews
+.review__star:before {
+  margin: 5px;
+  color: #bf0000;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+// Checkout
+.form-check-input:checked {
+  background-color: #bf0000;
+  border-color: #bf0000;
+}
+
+/* Responsive adjustments for the secondary navigation on smaller screens */
+@media (max-width: 991.98px) {
+  /* Adjust breakpoint as needed, lg is 992px */
+  .header__main-navigation .navbar-nav {
+    flex-direction: column; /* Stack nav items vertically */
+    align-items: flex-start; /* Align to the start */
+  }
+
+  .main-nav__tab {
+    width: 100%; /* Full width for mobile tabs */
+    .nav-link {
+      padding: 0.5rem 1rem; /* Adjust padding for mobile */
+      border-bottom: none; /* Remove underline on mobile */
+      &:hover {
+        border-bottom-color: transparent;
+      }
+    }
+    .main-nav__panel {
+      position: static; /* Remove absolute positioning on mobile */
+      transform: none; /* Remove transform on mobile */
+      box-shadow: none;
+      border: none;
+      min-width: unset;
+      max-width: unset;
+      padding: 0;
+      display: block; /* Always visible for mobile if part of the collapse */
+    }
+    /* Hide the panel on smaller screens by default,
+           and show it when the parent `navbar-collapse` is open.
+           For a real mobile mega menu, you'd likely use Bootstrap's collapse JS for this.
+           Here, for simplicity, it's always shown on mobile once the nav is toggled. */
+    .header__category-widget,
+    .header_link-widget {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  /* Adjust the main nav for mobile collapse */
+  #mainNavbarCollapse {
+    .form-control {
+      width: 100%; /* Full width search on mobile */
+    }
+    .input-group {
+      width: 100%;
+    }
+  }
+
+  .image-container::after {
+    display: none;
+  }
+}
+
+// Book
+.book-container {
+  max-width: 185px;
+}
+
+.book-cover-container {
+  width: 100%;
+}
+
+.book-cover {
+  &__image {
+    vertical-align: bottom;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    border: 0;
+  }
+}
+
+// Recommend Single Book
+.spotlight-content:hover {
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+// Primary Footer
+.primary-footer {
+  background-color: #595959;
+}
+
+.footer__logo {
+  background-image: url(../images/logos/Rakuten_Logo_1.5X-Red.svg);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 100px;
+}
+
+// Swiper
+.swiper {
+  width: 100%;
+}
+
+.swiper-slide {
+  height: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 760px) {
+  .swiper {
+    height: 60vh;
+  }
+  .swiper-slide {
+    height: 90% !important;
+  }
+
+  sw .swiper-button-next {
+    right: 20px;
+    transform: rotate(90deg);
+  }
+
+  .swiper-button-prev {
+    left: 20px;
+  }
+}

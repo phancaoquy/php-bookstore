@@ -1,0 +1,24 @@
+{
+    "name": "phancaoquy/php-bookstore",
+    "description": "PHP Vanilla Bookstore",
+    "autoload": {
+        "psr-4": {
+            "Phancaoquy\\PhpBookstore\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "phancaoquy",
+            "email": "caoquyphan@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phpro/grumphp": "v2.x-dev"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpro/grumphp": true
+        }
+    }
+}
